@@ -1,0 +1,30 @@
+[
+    {
+        "titulo": "Ver material",
+        "estado": "completo"
+    },
+    {
+        "titulo": "Hacer la práctica",
+        "estado": "en progreso"
+    },
+    {
+        "titulo": "Ver clase jueves",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Estudiar",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Estudiaaaaar",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Hola",
+        "estado": "pendiente"
+    },
+    {
+        "titulo": "Holita",
+        "estado": "pendiente"
+    }
+]
