@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Luna",
+        "apellido": "Marchetta",
+        "email": "lunitam@gmail.com",
+        "password": "qweqwe",
+        "avatar": "Luna Marchetta - 11-3-2020 13_18_20.jpg"
+    },
+    {
+        "nombre": "Bruno",
+        "apellido": "Marchetta",
+        "email": "brunito@gmail.com",
+        "password": "qweqwe",
+        "avatar": "Bruno Marchetta - 11-3-2020 13_18_48.jpg"
+    },
+    {
+        "nombre": "123",
+        "apellido": "123",
+        "email": "123@123",
+        "password": "123",
+        "avatar": "avatar"
+    }
+]
