@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Contanos tu experiencia | Santa María Bar</title>
+</head>
+<body>
+    <form action="index.html">
+        <section class="form-section">
+            <img src="img/logo-web.png" alt="Logo">
+        </section>
+        <section class="form-section">
+            <p>¿De dónde sos?</p>
+            <select name="lugar" id="lugar">
+                <option value="" hidden>Seleccioná una opción</option>
+                <option value="lasheras">Las Heras</option>
+                <option value="ciudad">Ciudad</option>
+                <option value="guaymallen">Guaymallén</option>
+                <option value="maipu">Maipú</option>
+                <option value="godoycruz">Godoy Cruz</option>
+                <option value="lujandecuyo">Luján de Cuyo</option>
+            </select>
+        </section>
+        <section class="form-section">
+            <p>¿Qué te pareció la iluminación del ambiente?</p>
+            <div>
+                <input type="checkbox" name="iluminacion" id="muyacorde" value="1">
+                <label for="muyacorde">Muy acorde</label>
+            </div>
+            <div>
+                <input type="checkbox" name="iluminacion" id="buena" value="0">
+                <label for="buena">Buena, pero podría mejorar</label>
+            </div>
+            <div>
+                <input type="checkbox" name="iluminacion" id="mala" value="-1">
+                <label for="mala">Mala</label>
+            </div>
+        </section>
+        <section class="form-section">
+            <p>¿Qué tipo de plato fue el que más te gustó?</p>
+            <div>
+                <input type="checkbox" name="plato" id="entrada" value="entrada">
+                <label for="entrada">Entrada</label>
+            </div>
+            <div>
+                <input type="checkbox" name="plato" id="platoprincipal" value="platoprincipal">
+                <label for="platoprincipal">Plato principal</label>
+            </div>
+            <div>
+                <input type="checkbox" name="plato" id="postre" value="postre">
+                <label for="postre">Postre</label>
+            </div>
+            <div>
+                <input type="checkbox" name="plato" id="otros" value="otros">
+                <label for="otros">Otros</label>
+            </div>
+        </section>
+        <section class="form-section">
+            <p>¿Recomendarías el lugar?</p>
+            <div>
+                <input type="radio" name="recomendacion" id="si" value="true">
+                <label for="si">Sí</label>
+                <input type="radio" name="recomendacion" id="no" value="false">
+                <label for="no">No</label>
+            </div>
+        </section>
+        <section class="form-section">
+            <p>¿Por qué?</p>
+            <textarea name="porque" id="porque" cols="50" rows="5"></textarea>
+        </section>
+        <section class="form-section">
+            <p>Dejanos tus datos y nos pondremos en contacto con vos</p>
+            <div class="block">
+                <label for="name">Nombre: </label>
+                <input type="text" id="name" required><br>
+            </div>
+            <div class="block">
+                <label for="email">Email: </label>
+                <input type="email" id="email" required><br>
+            </div>
+        </section>
+        <div class="buttons">
+            <button class="submit" type="submit">Enviar</button>
+            <button class="reset" type="reset">Resetear</button>
+        </div>
+    </form>
+</body>
+</html>

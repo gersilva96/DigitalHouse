@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #4A4A4A;
+    font-family: "Montserrat",sans-serif;
+}
+
+body {
+    width: 1050px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 50px 0 20px 0;
+    border-bottom: 1px solid #4A4A4A;
+}
+
+.up {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header h1 a {
+    text-decoration: none;
+}
+
+main {
+    overflow: hidden;
+    display: block;
+    margin: 30px 0;
+}
+
+footer {
+    padding: 20px;
+    overflow: hidden;
+    background-color: #D8D8D8;
+}
+
+form {
+    display: block;
+    width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #F2A802;
+    background-color: #FCFCFC;
+    box-sizing: border-box;
+}
+
+.Bcontainer {
+    display: block;
+    float: left;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+.Bcontainer nav ul {
+    list-style-type: none;
+}
+
+.Bcontainer nav ul li a {
+    line-height: 30px;
+    text-decoration: none;
+}
+
+.Ccontainer {
+    display: block;
+    float: right;
+    width: 660px;
+    border-left: 1px solid #4A4A4A;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.Ccontainer article {
+    margin-left: 20px;
+}
+
+.Ccontainer article h2 {
+    padding-bottom: 30px;
+}
+
+.Ccontainer article img {
+    float: right;
+    height: 150px;
+    border: 1px solid #4A4A4A50;
+    border-radius: 5px;
+}
+
+.Ccontainer article h3{
+    padding-bottom: 5px;
+    margin-left: 20px;
+}
+
+.Ccontainer article p{
+    padding-bottom: 20px;
+    margin-left: 20px;
+    font-weight: 300;
+}
+
+.Ccontainer article h4 a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 60px;
+}
+
+.Ccontainer article:nth-child(3) h4 a {
+    margin-bottom: 0px;
+}
+
+.logo{
+    float: left;
+    height: 150px;
+    padding-left: 20px;
+}
+
+.contacto-social {
+    float: right;
+    padding-right: 20px;
+    padding-top: 5px;
+    width: 200px;
+    margin: auto 0;
+}
+
+.contacto-social ul li {
+    list-style: none;
+    text-align: right;
+}
+
+.contacto-social ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.form-section img {
+    display: block;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.form-section {
+    margin: 30px 0;
+}
+
+.form-section p {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.form-section div input:nth-child(3) {
+    margin-left: 20px;
+}
+
+.block {
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: block;
+    width: 638px;
+    overflow: hidden;
+}
+
+.submit {
+    display: block;
+    float: left;
+    width: 47%;
+    height: 25px;
+    background-color: #F2A802;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    color: white;
+    box-sizing: border-box;
+}
+
+.reset {
+    display: block;
+    float: right;
+    width: 47%;
+    height: 25px;
+    background-color: white;
+    border: 1px solid #F2A802;
+    border-radius: 5px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.submit:hover, .reset:hover {
+    cursor: pointer;
+}
