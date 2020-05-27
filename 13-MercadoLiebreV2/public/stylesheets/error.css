@@ -1,0 +1,23 @@
+.error {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    color: #444;
+}
+
+.error p i {
+    font-size: 100px;
+    margin-bottom: 30px;
+}
+
+.error p:nth-child(2) {
+    font-size: 200px;
+    margin: 0;
+    line-height: 200px;
+}
+
+.error p:last-child {
+    font-size: 30px;
+}

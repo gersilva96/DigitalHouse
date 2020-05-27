@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=none">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/stylesheets/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/product-detail.css">
+    <link rel="shortcut icon" type="image/svg"
+        href="https://http2.mlstatic.com/ui/navigation/5.6.0/mercadolibre/favicon.ico">
+
+    <title><%= product.name %> | MercadoLiebre</title>
+</head>
+
+<body>
+    <%- include("./partials/header") %>
+
+    <div class="product-detail">
+        <div class="container">
+            <h2 class="product-detail_h2">Detalle del producto: <%= product.name %> </h2>
+            <section class="product-detail_section">
+                <figure class="left">
+                    <img src="/images/products/<%= product.image %>" alt="imagen de producto">
+                    <figcaption><%= product.description %></figcaption>
+                </figure>
+                <article class="right">
+                    <h1><%= product.name %> </h1>
+                    <span class="old-price"><span>$<%= toThousand(product.price) %></span> /
+                        <span><%= product.discount %>% OFF</span></span>
+                    <h3>$<%= formatPrice(product.price,product.discount) %></h3>
+                    <span class="benefit">
+                        <i class="fas fa-credit-card"></i>
+                        <p>Pagá en 12 cuotas sin interés</p>
+                    </span>
+                    <span class="benefit">
+                        <i class="fas fa-store"></i>
+                        <p>Retiro gratis en locales del vendedor</p>
+                    </span>
+                    <a class="buy-link" href="#">
+                        <button class="buy-button">Comprar ahora</button>
+                    </a>
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <%- include("./partials/footer") %>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="/javascripts/toogle-nav.js"></script>
+</body>
+
+</html>
