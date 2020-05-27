@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Registrarse | Craftsy</title>
+</head>
+<body>
+    <div class="main-container">
+        <header class="main-header">
+            <a href="index.html"><img src="images/logo.png" alt="Logotipo"></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Tablets</a></li>
+                    <li><a href="#">Computadoras</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <ul>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Registro</a></li>
+                </ul>
+            </div>
+        </header>
+        <div class="container">
+            <div class="login-register">
+                <form action="#">
+                    <section class="form-section">
+                        <h1>Registrate</h1>
+                    </section>
+                    <section class="form-section-input">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder=" Ingresá tu nombre" required>
+                        <p class="warning">Obligatorio</p>
+                    </section>
+                    <section class="form-section-input">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder=" Ingresá tu email" required>
+                        <p class="warning">Obligatorio</p>
+                    </section>
+                    <section class="form-section-input">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" placeholder=" Contraseña" required>
+                        <p class="warning">Obligatorio</p>
+                    </section>
+                    <section class="form-section">
+                        <p>País de nacimiento</p>
+                        <select name="lugar" id="lugar" required>
+                            <option value="" hidden>Seleccioná una opción</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="chile">Chile</option>
+                            <option value="uruguay">Uruguay</option>
+                            <option value="brasil">Brasil</option>
+                            <option value="peru">Perú</option>
+                            <option value="bolivia">Bolivia</option>
+                        </select>
+                        <p class="warning">Obligatorio</p>
+                    </section>
+                    <section class="form-section">
+                        <p>Género</p>
+                        <div class="select">
+                            <input type="radio" name="genero" id="masc" value="masc">
+                            <label for="masc">Masculino</label>
+                        </div>
+                        <div class="select">
+                            <input type="radio" name="genero" id="fem" value="fem">
+                            <label for="fem">Femenino</label>
+                        </div>
+                        <div class="select">
+                            <input type="radio" name="genero" id="na" value="na">
+                            <label for="na">Prefiero no decirlo</label>
+                        </div>
+                    </section>
+                    <section class="form-section">
+                        <p>Hobbies</p>
+                        <div class="select">
+                            <input type="checkbox" name="hobbies" id="guitarra" value="guitarra">
+                            <label for="guitarra">Guitarra</label>
+                        </div>
+                        <div class="select">
+                            <input type="checkbox" name="hobbies" id="futbol" value="futbol">
+                            <label for="futbol">Fútbol</label>
+                        </div>
+                        <div class="select">
+                            <input type="checkbox" name="tenis" id="tenis" value="tenis">
+                            <label for="tenis">Tenis</label>
+                        </div>
+                        <div class="select">
+                            <input type="checkbox" name="programacion" id="programacion" value="programacion">
+                            <label for="programacion">Programación</label>
+                        </div>
+                    </section>
+                    <section class="form-section">
+                        <p>Dejanos tus comentarios</p>
+                        <textarea name="porque" id="porque" cols="30" rows="5"></textarea>
+                    </section>
+                    <section class="form-section">
+                        <input type="checkbox" name="terms" id="terms" value="true" required>
+                        <label for="terms">Acepto los términos y condiciones</label>
+                    </section>
+                    <section class="form-section">
+                        <p>Botones enviar con etiquetas "input"</p>
+                        <input class="input-button" type="submit" value="Registrarme">
+                        <input class="input-button" type="reset" value="Cancelar">
+                    </section>
+                    <section class="form-section">
+                        <p>Botones enviar con etiquetas "button"</p>
+                        <button class="submit" type="submit">Registrarme</button>
+                        <button class="reset" type="reset">Cancelar</button>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
