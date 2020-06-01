@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cambio de color</title>
+</head>
+
+<body <%= style %>>
+  <h1>Seleccioná un color:</h1>
+  <form action="/color" method="POST">
+    <select name="color">
+      <option value="">Elegí un color</option>
+      <option value="yellow">Amarillo</option>
+      <option value="blue">Azul</option>
+      <option value="red">Rojo</option>
+      <option value="green">Verde</option>
+    </select><br>
+    <label>¿Deseas recordar el color elegido?</label>
+    <input type="checkbox" name="recordarColor" value="true"><br>
+    <button type="submit">Elegir color</button>
+  </form>
+</body>
+
+</html>
