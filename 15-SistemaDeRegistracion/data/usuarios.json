@@ -19,5 +19,12 @@
         "email": "123@123",
         "password": "123",
         "avatar": "avatar"
+    },
+    {
+        "nombre": "German",
+        "apellido": "Silva",
+        "email": "gersilva96@hotmail.com",
+        "password": "quete123",
+        "avatar": "avatar"
     }
 ]
