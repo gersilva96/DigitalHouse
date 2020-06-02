@@ -11,6 +11,6 @@ router.get('/profile/:email', userController.profile);
 
 //Rutas POST
 router.post("/login", userController.login);
-router.post("/register", uploadFileMiddleware.uploadFile, userController.newUser);
+router.post("/register", uploadFileMiddleware.uploadFile, userController.create);
 
 module.exports = router;
