@@ -33,7 +33,7 @@ const userController = {
         res.render('profile', { usuario });
     },
 
-    newUser: (req, res) => {
+    create: (req, res) => {
         const user = {
             nombre: req.body.name,
             apellido: req.body.lastname,
