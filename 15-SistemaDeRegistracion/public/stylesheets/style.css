@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+.btn-success {
+  margin-bottom: 20px;
+}
+
 .form {
   max-width: 500px;
   padding: 50px;

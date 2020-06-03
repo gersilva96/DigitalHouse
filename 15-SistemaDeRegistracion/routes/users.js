@@ -4,13 +4,12 @@ var router = express.Router();
 
 const uploadFileMiddleware = require("../middlewares/uploadFileMiddleware");
 
-//Rutas GET
-router.get("/login", userController.login);
-router.get("/register", userController.register);
-router.get('/profile/:email', userController.profile);
+router.get("/login", userController.login); //GET - Login form
+router.post("/login", userController.enter); //POST - Login method
 
-//Rutas POST
-router.post("/login", userController.login);
-router.post("/register", uploadFileMiddleware.uploadFile, userController.create);
+router.get("/register", userController.register); //GET - Register form
+router.post("/register", uploadFileMiddleware.uploadFile, userController.create); //POST - Register method
+
+router.get('/profile/:email', userController.profile); //GET - Profile view
 
 module.exports = router;

@@ -1,53 +1,69 @@
 const fs = require("fs");
 const path = require("path");
+const bcrypt = require("bcrypt");
 
-// Lee el archivo Json
-function readJSONfile() {
-    return JSON.parse(fs.readFileSync(userController.archivo, 'utf-8'));
-}
+const usersFile = path.join(__dirname, "..", "data", "users.json");
+const readJSONfile = () => JSON.parse(fs.readFileSync(usersFile, "utf-8"));
+const searchByEmail = email => {
+    let archivoJson = readJSONfile();
+    let userFound = null;
+    archivoJson.forEach(elem => {
+        if (elem["email"] == email) {
+            userFound = elem;
+        }
+    });
+    return userFound; // si no lo encuentra devuelve null
+};
 
 const userController = {
     login: (req, res) => {
-        res.render("login");
+        const mensaje = null;
+        res.render("login", {mensaje});
+    },
+
+    enter: (req, res) => {
+        const user = searchByEmail(req.body.email);
+        let mensaje = null;
+        if (user != null) {
+            if (bcrypt.compareSync(req.body.password, user.password)) {
+                res.send("Estás logueado!");
+            } else {
+                mensaje = "La contraseña ingresada no es válida";
+                res.render("login", {mensaje});
+            }
+        } else {
+            mensaje = "El usuario no existe";
+            res.render("login", {mensaje});
+        }
     },
 
     register: (req, res) => {
         res.render("register");
     },
 
-    archivo: path.join(__dirname, "..", "data", "usuarios.json"),
-
-    searchByEmail: function (email) {
-        let archivoJson = readJSONfile();
-        let user = null;
-        archivoJson.forEach((elem, i) => {
-            if (elem["email"] == email) {
-                user = elem;
-            }
-        });
-        return user; // si no lo encuentra devuelve null
+    create: (req, res) => {
+        if (req.body.password == req.body.repeat_password) {
+            const user = {
+                nombre: req.body.name,
+                apellido: req.body.lastname,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10),
+                avatar: "avatar"
+            };
+            let archivoJSON = readJSONfile();
+            archivoJSON.push(user);
+            let archivoStringifiado = JSON.stringify(archivoJSON);
+            fs.writeFileSync(usersFile, archivoStringifiado);
+            res.render("profile", { usuario: user });
+        } else {
+            res.redirect("/register", {errors: errrors.errors});
+        }
     },
 
     profile: (req, res) => {
-        let usuario = userController.searchByEmail(req.params.email);
+        let usuario = searchByEmail(req.params.email);
         res.render('profile', { usuario });
     },
-
-    create: (req, res) => {
-        const user = {
-            nombre: req.body.name,
-            apellido: req.body.lastname,
-            email: req.body.email,
-            password: req.body.password,
-            avatar: "avatar"
-        };
-        console.log(req.body);
-        let archivoJSON = readJSONfile();
-        archivoJSON.push(user);
-        let archivoStringifiado = JSON.stringify(archivoJSON);
-        fs.writeFileSync(path.join(__dirname, "..", "data", "usuarios.json"), archivoStringifiado);
-        res.render("profile", { usuario: user });
-    }
 };
 
 module.exports = userController;

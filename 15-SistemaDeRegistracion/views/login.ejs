@@ -8,8 +8,11 @@
     <div class="container">
         <a href="/"><button type="button" class="btn btn-success">HOME</button></a>
         <h1>Login</h1>
+        <% if (mensaje != null) { %>
+            <p style="color: red"><%= mensaje %></p>
+        <% } %>
         <div class="form">
-            <form action="/profile" method="POST">
+            <form action="/users/login" method="POST">
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input class="form-control" type="email" id="email" name="email" required>
