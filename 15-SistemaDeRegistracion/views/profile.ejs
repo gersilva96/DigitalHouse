@@ -6,8 +6,12 @@
 </head>
 <body>
     <h1>Profile</h1>
-    <p>Nombre: <%= usuario.nombre %></p>
-    <p>Apellido: <%= usuario.apellido %></p>
-    <p>Email: <%= usuario.email %></p>
+    <% if (!usuario) { %>
+        <p>No podés ingresar a esta sección sin loguearte</p>
+    <% } else { %>
+        <p>Nombre: <%= usuario.nombre %></p>
+        <p>Apellido: <%= usuario.apellido %></p>
+        <p>Email: <%= usuario.email %></p>
+    <% } %>
 </body>
 </html>
