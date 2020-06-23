@@ -10,6 +10,6 @@ router.post("/login", userController.enter); //POST - Login method
 router.get("/register", userController.register); //GET - Register form
 router.post("/register", uploadFileMiddleware.uploadFile, userController.create); //POST - Register method
 
-router.get('/profile/:email', userController.profile); //GET - Profile view
+router.get('/profile/:id', userController.profile); //GET - Profile view
 
 module.exports = router;
