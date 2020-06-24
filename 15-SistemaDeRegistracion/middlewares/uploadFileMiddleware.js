@@ -1,38 +1,34 @@
-const multer = require('multer'); // file uploads
+const multer = require('multer');
 const path = require('path');
+const userController = require("../controllers/userController")
 
-// Start File uploads config ---------------------------------------------------------
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-     cb(null, 'public/images/avatars')
+     cb(null, 'public/images/users')
   },
   filename: function (req, file, cb) {
-    let fechaActual = new Date();
-    cb(null, req.body.nombre + ' ' + req.body.apellido + ' - ' + fechaActual.getDate() + "-" + fechaActual.getMonth() + "-" + fechaActual.getFullYear() + " " + fechaActual.getHours() + "_" + fechaActual.getMinutes() + "_" + fechaActual.getSeconds() + path.extname(file.originalname));
+    cb(null, "avatar-" + userController.getNewId() + path.extname(file.originalname));
   }
 });
 
 var upload = multer({
   storage: storage,
-  fileFilter: function (req, file, callback) {
-    var ext = path.extname(file.originalname);
-    if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
-        return callback(new Error('El avatar sólo puede ser imagen JPG, PNG, JPEG.'))
-      }
-    callback(null, true)
+  limits: {fileSize: 5000000},
+  fileFilter: (req, file, callback) => {
+    const fileTypes = /png|jpg|jpeg/;
+    const mimeType = fileTypes.test(file.mimetype);
+    const extName = fileTypes.test(path.extname(file.originalname));
+    if (mimeType && extName) {
+      return callback(null,true);
+    } else {
+      return callback("El archivo debe ser una imagen válida (.png, .jpg, .jpeg)");
+    }
   }
 }).single('avatar');
-// End File uploads config ---------------------------------------------------------
-
 
 let uploadFile = {
-  uploadFile: function (req,res,next) {
-    upload(req, res, function(err){ // invocamos la función upload de multer para subir el archivo de avatar
-      if(err) {
-        console.log(err);
-        return res.render("index", {title: err});
-      } else { next(); } // todo salió bien, continuamos al próximo middleware
-    });
+  uploadFile: (req,res,next) => {
+    upload(req,res, (error) => { error != undefined ? res.render("users/register", {mensaje: error}) : next() });
   }
 }
 

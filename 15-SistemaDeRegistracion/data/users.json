@@ -62,5 +62,29 @@
         "email": "dsadsa@dsads",
         "password": "$2b$10$8jEm9z2keJx6rOtBO/Fn9ufe0ypUzClAiD85.Ggl439O3d6ZT8pbC",
         "avatar": "avatar"
+    },
+    {
+        "id": 9,
+        "nombre": "Germán",
+        "apellido": "Silva",
+        "email": "gersilva96@hotmail.com",
+        "password": "$2b$10$/3XzMl9fTidXJo5l0VYck.QvnqtcRAeB69OrXjXQ3atCZYeHDo29C",
+        "avatar": "avatar"
+    },
+    {
+        "id": 10,
+        "nombre": "Germán",
+        "apellido": "Silva",
+        "email": "gersilva96@hotmail.com",
+        "password": "$2b$10$9dYaIWbkPpmJFVxk2Pdr2OZaMouSwaBadllsKF92kaGLmvU3848LO",
+        "avatar": "avatar"
+    },
+    {
+        "id": 11,
+        "nombre": "gdhbsjk",
+        "apellido": "dgshbanmk",
+        "email": "dsa@dnsajk",
+        "password": "$2b$10$CvzpgxLVH71pN3J8niqls.BoRUnGm2XFF5VHhcE4jckFbHey7P6sW",
+        "avatar": "avatar-11.png"
     }
 ]

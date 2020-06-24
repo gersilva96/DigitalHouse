@@ -2,38 +2,42 @@ const fs = require("fs");
 const path = require("path");
 const bcrypt = require("bcrypt");
 
-const usersFile = path.join(__dirname, "..", "data", "users.json");
-const readJSONfile = () => JSON.parse(fs.readFileSync(usersFile, "utf-8"));
-const saveJSONfile = (file) => fs.writeFileSync(usersFile, JSON.stringify(file));
-const getNewId = () => {
-    const users = readJSONfile();
-    let lastId = 0;
-    users.forEach(user => {
-        if(user.id > lastId) {
-            lastId = user.id;
-        }
-    });
-    return lastId+=1;
-};
-const searchByEmail = email => {
-    let archivoJson = readJSONfile();
-    let userFound = null;
-    archivoJson.forEach(elem => {
-        if (elem["email"] == email) {
-            userFound = elem;
-        }
-    });
-    return userFound; // si no lo encuentra devuelve null
-};
-
 const userController = {
+    usersFile: path.join(__dirname, "..", "data", "users.json"),
+
+    readJSONfile: () => JSON.parse(fs.readFileSync(userController.usersFile, "utf-8")),
+
+    saveJSONfile: (file) => fs.writeFileSync(userController.usersFile, JSON.stringify(file)),
+
+    getNewId: () => {
+        const users = userController.readJSONfile();
+        let lastId = 0;
+        users.forEach(user => {
+            if(user.id > lastId) {
+                lastId = user.id;
+            }
+        });
+        return lastId+=1;
+    },
+
+    searchByEmail: email => {
+        let archivoJson = userController.readJSONfile();
+        let userFound = null;
+        archivoJson.forEach(elem => {
+            if (elem["email"] == email) {
+                userFound = elem;
+            }
+        });
+        return userFound; // si no lo encuentra devuelve null
+    },
+
     login: (req, res) => {
         const mensaje = null;
         res.render("login", {mensaje});
     },
 
     enter: (req, res) => {
-        const user = searchByEmail(req.body.email);
+        const user = userController.searchByEmail(req.body.email);
         let mensaje = null;
         if (user != null) {
             if (bcrypt.compareSync(req.body.password, user.password)) {
@@ -55,19 +59,19 @@ const userController = {
     create: (req, res) => {
         if (req.body.password == req.body.repeat_password) {
             const user = {
-                id: getNewId(),
+                id: userController.getNewId(),
                 nombre: req.body.name,
                 apellido: req.body.lastname,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                avatar: "avatar"
+                avatar: req.file.filename
             };
-            let archivoJSON = readJSONfile();
+            let archivoJSON = userController.readJSONfile();
             archivoJSON.push(user);
-            saveJSONfile(archivoJSON);
-            res.redirect(`/profile/${user.id}`, { usuario: user });
+            userController.saveJSONfile(archivoJSON);
+            res.render("profile", { usuario: user });
         } else {
-            res.redirect("/register", {errors: errrors.errors});
+            res.render("/users/register", {errors: errrors.errors});
         }
     },
 
