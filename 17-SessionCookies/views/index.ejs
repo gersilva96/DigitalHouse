@@ -12,10 +12,10 @@
   <form action="/color" method="POST">
     <select name="color">
       <option value="">Elegí un color</option>
-      <option value="yellow">Amarillo</option>
-      <option value="blue">Azul</option>
-      <option value="red">Rojo</option>
-      <option value="green">Verde</option>
+      <option value="yellow" <% if (color == "yellow") { %> selected <% } %>>Amarillo</option>
+      <option value="blue" <% if (color == "blue") { %> selected <% } %>>Azul</option>
+      <option value="red" <% if (color == "red") { %> selected <% } %>>Rojo</option>
+      <option value="green" <% if (color == "green") { %> selected <% } %>>Verde</option>
     </select><br>
     <label>¿Deseas recordar el color elegido?</label>
     <input type="checkbox" name="recordarColor" value="true"><br>

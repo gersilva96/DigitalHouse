@@ -3,14 +3,13 @@ module.exports = {
         res.render("index", {style: req.session.style, color: req.session.color});
     },
     color: (req,res) => {
-        req.session.color = req.body.color;
-        req.session.style = `style=background-color:${req.session.color}`;
-        if (req.body.recordarColor) {
-            res.cookie("color",`${req.body.color}`);
-        }
-
-        if (req.cookies.color) {
-            req.session.style = `style=background-color:${req.cookie.color}`
+        let style = `style=background-color:${req.body.color}`;
+        let color = req.body.color;
+        req.session.color = color;
+        req.session.style = style;
+        if (req.body.recordarColor != undefined) {
+            res.cookie("style", style, {maxAge: Date.now()});
+            res.cookie("color", color, {maxAge: Date.now()});
         }
         res.redirect("/");
     }
