@@ -8,7 +8,7 @@ window.onload = () => {
             if (cantidadIntegrantes == undefined) {
                 cantidadIntegrantes = prompt("Ingrese la cantidad de integrantes de la familia (mayor o igual a 3):");
             }
-            if (cantidadIntegrantes.length == 0) {
+            if (cantidadIntegrantes.trim().length == 0) {
                 cantidadIntegrantes = prompt("El campo no puede estar vacío.\nIngrese la cantidad de integrantes de la familia (mayor o igual a 3):");
             }
             if (isNaN(cantidadIntegrantes)) {
@@ -17,45 +17,42 @@ window.onload = () => {
             if (cantidadIntegrantes.length > 0 && cantidadIntegrantes < 3) {
                 cantidadIntegrantes = prompt("Ingresó un número menor a 3.\nIngrese la cantidad de integrantes de la familia (mayor o igual a 3):");
             }
-        } while (cantidadIntegrantes == undefined || cantidadIntegrantes.length == 0 || isNaN(cantidadIntegrantes) || cantidadIntegrantes < 3)
+        } while (cantidadIntegrantes == undefined || cantidadIntegrantes.trim().length == 0 || isNaN(cantidadIntegrantes) || cantidadIntegrantes < 3)
 
         //Una vez que valido la cantidad de integrantes, continúo
         let integrantes = [];
-        let nombreTemp = undefined;
-        let gastosTemp = undefined;
 
         for (let i = 1; i <= cantidadIntegrantes; i++) {       //Lleno el array con los datos de los integrantes de la familia
+
+            let nombreTemp = undefined;
+            let gastosTemp = undefined;
 
             do {    //Verifica que el campo nombre no esté vacío
                 if (nombreTemp == undefined) {
                     nombreTemp = prompt(`Nombre del ${i}° integrante:`);
                 }
-                if (nombreTemp.length == 0) {
+                if (nombreTemp.trim().length == 0) {
                     nombreTemp = prompt(`El nombre no puede estar vacío.\nNombre del ${i}° integrante:`);
                 }
-            } while (nombreTemp == undefined || nombreTemp.length == 0)
+            } while (nombreTemp == undefined || nombreTemp.trim().length == 0)
 
             do {    //Verifica que el campo gastos no esté vacío y sea un número
                 if (gastosTemp == undefined) {
-                    gastosTemp = prompt(`Gastos del día de ${nombreTemp}:`);
+                    gastosTemp = prompt(`Gastos del día de ${nombreTemp.trim()}:`);
                 }
-                if (gastosTemp.length == 0) {
-                    gastosTemp = prompt(`El gasto no puede estar vacío.\nGastos del día de ${nombreTemp}:`);
+                if (gastosTemp.trim().length == 0) {
+                    gastosTemp = prompt(`El gasto no puede estar vacío.\nGastos del día de ${nombreTemp.trim()}:`);
                 }
                 if (isNaN(gastosTemp)) {
-                    gastosTemp = prompt(`El dato ingresado no es un número.\nGastos del día de ${nombreTemp}:`);
+                    gastosTemp = prompt(`El dato ingresado no es un número.\nGastos del día de ${nombreTemp.trim()}:`);
                 }
-            } while (gastosTemp == undefined || gastosTemp.length == 0 || isNaN(gastosTemp))
+            } while (gastosTemp == undefined || gastosTemp.trim().length == 0 || isNaN(gastosTemp))
 
             //Si paso las validaciones de nombre y gastos, agrego el objeto al array
             integrantes.push({
                 nombre: nombreTemp,
                 gastos: parseFloat(gastosTemp)
             });
-
-            //Reinicio los valores temporales para poder validar los siguientes
-            nombreTemp = undefined;
-            gastosTemp = undefined;
         }
 
         //Una vez llenado el array, sigo
