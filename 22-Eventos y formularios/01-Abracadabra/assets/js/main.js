@@ -88,4 +88,10 @@ window.addEventListener("load", () => {
         }
     });
 
+    let numeroAleatorio = () => Math.floor(Math.random() * (6 - 0));
+    let ganadora = document.querySelectorAll("article.box")[numeroAleatorio()];
+    ganadora.addEventListener("click", () => {
+        alert("GANASTE!!!");
+    });
+
 })
