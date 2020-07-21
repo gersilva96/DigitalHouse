@@ -1,90 +1,10 @@
 [
     {
         "id": 1,
-        "nombre": "Luna",
-        "apellido": "Marchetta",
-        "email": "lunitam@gmail.com",
-        "password": "qweqwe",
-        "avatar": "Luna Marchetta - 11-3-2020 13_18_20.jpg"
-    },
-    {
-        "id": 2,
-        "nombre": "Bruno",
-        "apellido": "Marchetta",
-        "email": "brunito@gmail.com",
-        "password": "qweqwe",
-        "avatar": "Bruno Marchetta - 11-3-2020 13_18_48.jpg"
-    },
-    {
-        "id": 3,
-        "nombre": "123",
-        "apellido": "123",
-        "email": "123@123",
-        "password": "123",
-        "avatar": "avatar"
-    },
-    {
-        "id": 4,
-        "nombre": "German",
-        "apellido": "Silva",
-        "email": "gersilva96@hotmail.com",
-        "password": "quete123",
-        "avatar": "avatar"
-    },
-    {
-        "id": 5,
-        "nombre": "Hola",
-        "apellido": "Hola",
-        "email": "Hola@hola",
-        "password": "hola",
-        "avatar": "avatar"
-    },
-    {
-        "id": 6,
-        "nombre": "123|123|",
-        "apellido": "123Hola",
-        "email": "Hola@hola",
-        "password": "$2b$10$bW.IGdOZ4Wn2RQICyXN8feE60wJkEW9F0Z1LMJMAp8XwOkYVy.yYW",
-        "avatar": "avatar"
-    },
-    {
-        "id": 7,
-        "nombre": "Ger",
-        "apellido": "Silva",
-        "email": "gersilva96@hotmail.com",
-        "password": "$2b$10$qQDGFxz187ukNIkJPos0DOePlkfF6R27OB/nn4d6dZGgwAwlHVaIa",
-        "avatar": "avatar"
-    },
-    {
-        "id": 8,
-        "nombre": "dsad",
-        "apellido": "dsads",
-        "email": "dsadsa@dsads",
-        "password": "$2b$10$8jEm9z2keJx6rOtBO/Fn9ufe0ypUzClAiD85.Ggl439O3d6ZT8pbC",
-        "avatar": "avatar"
-    },
-    {
-        "id": 9,
         "nombre": "Germán",
         "apellido": "Silva",
         "email": "gersilva96@hotmail.com",
-        "password": "$2b$10$/3XzMl9fTidXJo5l0VYck.QvnqtcRAeB69OrXjXQ3atCZYeHDo29C",
-        "avatar": "avatar"
-    },
-    {
-        "id": 10,
-        "nombre": "Germán",
-        "apellido": "Silva",
-        "email": "gersilva96@hotmail.com",
-        "password": "$2b$10$9dYaIWbkPpmJFVxk2Pdr2OZaMouSwaBadllsKF92kaGLmvU3848LO",
-        "avatar": "avatar"
-    },
-    {
-        "id": 11,
-        "nombre": "gdhbsjk",
-        "apellido": "dgshbanmk",
-        "email": "dsa@dnsajk",
-        "password": "$2b$10$CvzpgxLVH71pN3J8niqls.BoRUnGm2XFF5VHhcE4jckFbHey7P6sW",
-        "avatar": "avatar-11.png"
+        "password": "$2b$10$Gvvl2EZhZR.aDta2JW8zL.uuX56RZzU2uvVqwC2yHfuaaOn2oh6tW",
+        "avatar": "avatar-1.png"
     }
 ]

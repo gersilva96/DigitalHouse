@@ -23,31 +23,40 @@ const userController = {
     searchByEmail: email => {
         let archivoJson = userController.readJSONfile();
         let userFound = null;
-        archivoJson.forEach(elem => {
-            if (elem["email"] == email) {
-                userFound = elem;
+        archivoJson.forEach(user => {
+            if (user["email"] == email) {
+                userFound = user;
+            }
+        });
+        return userFound; // si no lo encuentra devuelve null
+    },
+
+    searchById: id => {
+        let archivoJson = userController.readJSONfile();
+        let userFound = null;
+        archivoJson.forEach(user => {
+            if (user["id"] == id) {
+                userFound = user;
             }
         });
         return userFound; // si no lo encuentra devuelve null
     },
 
     login: (req, res) => {
-        const mensaje = null;
-        res.render("login", {mensaje});
+        res.render("login");
     },
 
     enter: (req, res) => {
         const user = userController.searchByEmail(req.body.email);
-        let mensaje = null;
         if (user != null) {
             if (bcrypt.compareSync(req.body.password, user.password)) {
-                res.render("profile", { usuario: user });
+                res.redirect(`/users/profile/${user.id}`);
             } else {
-                mensaje = "La contraseña ingresada no es válida";
+                let mensaje = "La contraseña ingresada no es válida";
                 res.render("login", {mensaje});
             }
         } else {
-            mensaje = "El usuario no existe";
+            let mensaje = "El usuario no existe";
             res.render("login", {mensaje});
         }
     },
@@ -57,27 +66,33 @@ const userController = {
     },
 
     create: (req, res) => {
-        if (req.body.password == req.body.repeat_password) {
-            const user = {
-                id: userController.getNewId(),
-                nombre: req.body.name,
-                apellido: req.body.lastname,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                avatar: req.file.filename
-            };
-            let archivoJSON = userController.readJSONfile();
-            archivoJSON.push(user);
-            userController.saveJSONfile(archivoJSON);
-            res.render("profile", { usuario: user });
+        if (userController.searchByEmail(req.body.email) == null) {
+            if (req.body.password == req.body.repeat_password) {
+                const user = {
+                    id: userController.getNewId(),
+                    nombre: req.body.name,
+                    apellido: req.body.lastname,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    avatar: req.file.filename
+                };
+                let archivoJSON = userController.readJSONfile();
+                archivoJSON.push(user);
+                userController.saveJSONfile(archivoJSON);
+                res.redirect(`/users/profile/${user.id}`);
+            } else {
+                let mensaje = "Las contraseñas no coinciden";
+                res.render("register", {mensaje});
+            }
         } else {
-            res.render("/users/register", {errors: errrors.errors});
+            let mensaje = "Ya existe un usuario con el email ingresado";
+            res.render("register", {mensaje});
         }
     },
 
     profile: (req, res) => {
-        let usuario = null;
-        res.render('profile', { usuario });
+        const user = userController.searchById(req.params.id);
+        res.render("profile", {user});
     },
 };
 

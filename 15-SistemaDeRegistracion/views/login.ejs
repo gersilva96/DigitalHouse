@@ -8,8 +8,12 @@
     <div class="container">
         <a href="/"><button type="button" class="btn btn-success">HOME</button></a>
         <h1>Login</h1>
-        <% if (mensaje != null) { %>
-            <p style="color: red"><%= mensaje %></p>
+        <% if (typeof(mensaje) != "undefined") { %>
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    <li><%= mensaje %></li>
+                </ul>
+            </div>
         <% } %>
         <div class="form">
             <form action="/users/login" method="POST">
