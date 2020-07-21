@@ -4,13 +4,15 @@
 		<meta charset="utf-8">
 		<title>Validación de Formularios</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+		<script src="js/validaciones.js"></script>
 	</head>
 	<body>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-8">
 					<h2>Formulario de registro</h2>
-					<form method="post" class="contact-form" action="index.hmtl">
+					<form class="contact-form">
 						<div class="form-group">
 							<label for="fullName">Nombre completo</label>
 							<input type="text" name="fullName" id="fullName" class="form-control">
@@ -38,7 +40,7 @@
 						</div>
 						<div class="form-group">
 							<label for="country">País de nacimiento</label>
-							<select class="form-control" name="country">
+							<select class="form-control" name="country" id="country">
 								<option value="">Elegí tu país</option>
 								<option value="Argentina">Argentina</option>
 								<option value="Bolivia">Bolivia</option>
@@ -53,7 +55,7 @@
 							</select>
 							<div class="country invalid-feedback"></div>
 						</div>
-						<button type="submit" class="btn btn-success">ENVIAR</button>
+						<button type="submit" class="btn btn-success" id="submit">ENVIAR</button>
 					</form>
 				</div>
 			</div>
