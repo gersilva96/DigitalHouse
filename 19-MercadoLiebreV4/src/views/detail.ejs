@@ -25,14 +25,15 @@
 				<div class="col-12 col-lg-4">
 					<article class="product-detail-info">
 						<h2 class="product-detail-title"><%= product.name %></h2>
-
-							<p class="product-detail-price small">
-								<span>$<%= toThousand(product.price) %></span>
-								/
-								<b><%= product.discount %>% OFF</b>
-							</p>
+							<% if (product.discount > 0) { %>
+								<p class="product-detail-price small">
+									<span>$<%= formatPrice(product.price, 0) %></span>
+									/
+									<b><%= product.discount %>% OFF</b>
+								</p>
+							<% } %>
 							<p class="product-detail-price">
-								$<%= formatPrice(product.price,product.discount) %>
+								$<%= formatPrice(product.price, product.discount) %>
 							</p>
 
 						<ul class="actions-list">
