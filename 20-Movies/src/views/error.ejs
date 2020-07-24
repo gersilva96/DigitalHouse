@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+  <head>
+    <%- include("partials/head", {title: "Error"}) %>
+  </head>
+  <body>
+    <%- include("partials/header", {title: message, globalSearch: true}) %>
+    <div class="container">
+        <h2><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
+    </div>
+    <%- include("partials/scripts") %>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<header>
+    <div class="bg-dark">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="/">DH Movies</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Películas
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="moviesDropdown">
+                                <a class="dropdown-item" href="/movies">Listar</a>
+                                <a class="dropdown-item" href="/movies/new">Nuevas</a>
+                                <a class="dropdown-item" href="/movies/recommended">Recomendadas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="actorsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actores
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="actorsDropdown">
+                                <a class="dropdown-item" href="/actors">Listar</a>
+                                <a class="dropdown-item" href="/actors/recommended">Recomendados</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <% if (typeof(moviesSearch) != "undefined") { %>
+                        <form action="/movies/search" method="GET" class="form-inline my-2 my-lg-0">
+                            <input name="keywords" class="form-control mr-sm-2" type="search" placeholder="Buscar películas" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    <% } %>
+                    <% if (typeof(actorsSearch) != "undefined") { %>
+                        <form action="/actors/search" method="GET" class="form-inline my-2 my-lg-0">
+                            <input name="keywords" class="form-control mr-sm-2" type="search" placeholder="Buscar actores" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    <% } %>
+                    <% if (typeof(globalSearch) != "undefined") { %>
+                        <form action="/search" method="GET" class="form-inline my-2 my-lg-0">
+                            <input name="keywords" class="form-control mr-sm-2" type="search" placeholder="Buscar películas o actores" aria-label="Search">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Buscar</button>
+                        </form>
+                    <% } %>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container">
+        <h1 style="margin: 30px 0"><%= title %></h1>
+    </div>
+</header>

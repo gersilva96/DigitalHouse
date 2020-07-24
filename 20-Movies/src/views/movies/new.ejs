@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head", {title}) %>
+</head>
+<body>
+    <%- include("../partials/header", {title, moviesSearch: true}) %>
+    <div class="container">
+        <ul>
+            <% movies.forEach(movie => { %>
+                <li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+    <%- include("../partials/scripts") %>
+</body>
+</html>

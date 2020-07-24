@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("partials/head", {title}) %>
+</head>
+<body>
+    <%- include("partials/header", {title, globalSearch: true}) %>
+    <div class="container">
+        <% if (actors.length == 0 && movies.length == 0) { %>
+            <div class="alert alert-warning" role="alert">
+                No se encontraron resultados
+            </div>
+        <% } %>
+        <% if (actors.length > 0) { %>
+            <h3 class="mt-5">Actores: </h3>
+            <ul>
+                <% actors.forEach(actor => { %>
+                    <li><a href="/actors/detail/<%= actor.id %>"><%= `${actor.first_name} ${actor.last_name}` %></a></li>
+                <% }); %>
+            </ul>
+        <% } %>
+        <% if (movies.length > 0) { %>
+            <h3 class="mt-5">Películas: </h3>
+            <ul>
+                <% movies.forEach(movie => { %>
+                    <li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li>
+                <% }); %>
+            </ul>
+        <% } %>
+    </div>
+    <%- include("partials/scripts") %>
+</body>
+</html>

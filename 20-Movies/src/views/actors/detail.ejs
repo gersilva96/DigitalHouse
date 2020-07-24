@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head", {title: `${actor.first_name} ${actor.last_name}`}) %>
+</head>
+<body>
+    <%- include("../partials/header", {title: `${actor.first_name} ${actor.last_name}`, actorsSearch: true}) %>
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">Rating: <b><%= actor.rating %></b></li>
+        </ul>
+
+        <div class="crud-buttons d-flex mt-4">
+            <a href=""><button class="btn btn-primary"><i class="fas fa-edit"></i> Editar</button></a>
+            <form action="" class="ml-3"><button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button></form>
+        </div>
+    </div>
+    <%- include("../partials/scripts") %>
+</body>
+</html>
