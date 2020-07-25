@@ -4,18 +4,24 @@
     <%- include("../partials/head", {title: movie.title}) %>
 </head>
 <body>
-    <%- include("../partials/header", {title: movie.title, moviesSearch: true}) %>
+    <%- include("../partials/header", {title: movie.title}) %>
     <div class="container">
         <ul class="list-group">
             <li class="list-group-item">Rating: <b><%= movie.rating %></b></li>
             <li class="list-group-item">Premios: <b><%= movie.awards %></b></li>
-            <li class="list-group-item">Duración: <b><%= movie.length %>min</b></li>
+            <li class="list-group-item">Duración: <b><% if (movie.length > 0) { %>
+                                                        <%= movie.length %>min
+                                                    <% } else { %>
+                                                        -
+                                                    <% } %></b></li>
             <li class="list-group-item">Fecha de estreno: <b><% if (movie.release_date.getUTCDate() < 10) { %><%= `0${movie.release_date.getUTCDate()}` %><% } else { %><%= movie.release_date.getUTCDate() %><% } %>/<% if (movie.release_date.getUTCMonth()+1 < 10) { %><%= `0${movie.release_date.getUTCMonth()+1}` %><% } else { %><%= movie.release_date.getUTCMonth()+1 %><% } %>/<%= movie.release_date.getUTCFullYear() %></b></li>
+            <li class="list-group-item">Género: <b><% if (movie.genre_id != null || movie.genre_id != undefined) { %><a href="/genres/detail/<%= movie.genre_id %>""><%= movie.genre.name %></a><% } else { %>-<% } %></b></li>
+            <li class="list-group-item">Actores:<br><ul><% movie.actors.forEach(actor => { %><li><a href="/actors/detail/<%= actor.id %>"><%= `${actor.first_name} ${actor.last_name}` %></a></li><% }); %></ul></li>
           </ul>
 
           <div class="crud-buttons d-flex mt-4">
-              <a href=""><button class="btn btn-primary"><i class="fas fa-edit"></i> Editar</button></a>
-              <form action="" class="ml-3"><button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button></form>
+              <a href="/movies/edit/<%= movie.id %>"><button class="btn btn-primary"><i class="fas fa-edit"></i> Editar</button></a>
+              <form action="/movies/delete/<%= movie.id %>?_method=DELETE" method="POST" class="ml-3"><button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button></form>
           </div>
     </div>
     <%- include("../partials/scripts") %>

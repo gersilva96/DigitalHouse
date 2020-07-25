@@ -1,0 +1,28 @@
+body {
+  margin-bottom: 80px; }
+  body .form {
+    max-width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px; }
+    @media (min-width: 768px) {
+      body .form {
+        padding: 20px 50px; } }
+    body .form #release_date, body .form #genre {
+      border: none;
+      padding-left: 0;
+      border-radius: 0;
+      border-bottom: 1px solid #CED4DA;
+      margin-bottom: 8px;
+      transition: all 400ms; }
+      body .form #release_date::placeholder, body .form #genre::placeholder {
+        font-weight: 300;
+        color: #757575; }
+      body .form #release_date:focus, body .form #genre:focus {
+        outline: none;
+        box-shadow: none;
+        border-bottom: 2px solid #4285F4; }
+    body .form .form-group {
+      margin-top: 50px; }
+
+/*# sourceMappingURL=styles.css.map */

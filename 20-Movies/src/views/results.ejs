@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include("partials/head", {title}) %>
+    <%- include("partials/head", {title: `Buscando: ${search}`}) %>
 </head>
 <body>
-    <%- include("partials/header", {title, globalSearch: true}) %>
+    <%- include("partials/header", {title: `Buscando: ${search}`}) %>
     <div class="container">
-        <% if (actors.length == 0 && movies.length == 0) { %>
+        <% if (actors.length == 0 && movies.length == 0 && genres.length == 0) { %>
             <div class="alert alert-warning" role="alert">
                 No se encontraron resultados
             </div>
@@ -24,6 +24,14 @@
             <ul>
                 <% movies.forEach(movie => { %>
                     <li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li>
+                <% }); %>
+            </ul>
+        <% } %>
+        <% if (genres.length > 0) { %>
+            <h3 class="mt-5">Géneros: </h3>
+            <ul>
+                <% genres.forEach(genre => { %>
+                    <li><a href="/genres/detail/<%= genre.id %>"><%= genre.name %></a></li>
                 <% }); %>
             </ul>
         <% } %>

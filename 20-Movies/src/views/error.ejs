@@ -5,7 +5,7 @@
     <%- include("partials/head", {title: "Error"}) %>
   </head>
   <body>
-    <%- include("partials/header", {title: message, globalSearch: true}) %>
+    <%- include("partials/header", {title: "Error"}) %>
     <div class="container">
         <h2><%= error.status %></h2>
         <pre><%= error.stack %></pre>

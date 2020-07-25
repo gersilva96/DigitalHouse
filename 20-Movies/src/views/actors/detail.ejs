@@ -4,10 +4,12 @@
     <%- include("../partials/head", {title: `${actor.first_name} ${actor.last_name}`}) %>
 </head>
 <body>
-    <%- include("../partials/header", {title: `${actor.first_name} ${actor.last_name}`, actorsSearch: true}) %>
+    <%- include("../partials/header", {title: `${actor.first_name} ${actor.last_name}`}) %>
     <div class="container">
         <ul class="list-group">
-            <li class="list-group-item">Rating: <b><%= actor.rating %></b></li>
+        <li class="list-group-item">Película favorita: <b><% if (actor.favorite_movie != null || actor.favorite_movie != undefined) { %><a href="/movies/detail/<%= actor.favorite_movie.id %>"><%= actor.favorite_movie.title %></a><% } else { %>-<% } %></b></li>
+        <li class="list-group-item">Rating: <b><%= actor.rating %></b></li>
+        <li class="list-group-item">Películas en las que actuó:<br><ul><% if (actor.movies.length == 0) { %><li>-</li><% } else { %><% actor.movies.forEach(movie => { %><li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li><% }); %><% } %></ul></li>
         </ul>
 
         <div class="crud-buttons d-flex mt-4">

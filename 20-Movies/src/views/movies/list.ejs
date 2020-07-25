@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <%- include("../partials/head", {title}) %>
+    <%- include("../partials/head", {title: "Todas las películas"}) %>
 </head>
 <body>
-    <%- include("../partials/header", {title, moviesSearch: true}) %>
+    <%- include("../partials/header", {title: "Todas las películas"}) %>
     <div class="container">
         <ul>
             <% movies.forEach(movie => { %>

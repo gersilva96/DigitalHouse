@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include("../partials/head", {title: "Todos los géneros"}) %>
+</head>
+<body>
+    <%- include("../partials/header", {title: "Todos los géneros"}) %>
+    <div class="container">
+        <ul>
+            <% genres.forEach(genre => { %>
+                <li><a href="/genres/detail/<%= genre.id %>"><%= genre.name %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+    <%- include("../partials/scripts") %>
+</body>
+</html>
