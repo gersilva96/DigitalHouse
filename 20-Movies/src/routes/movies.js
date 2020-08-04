@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const moviesController = require('../controllers/moviesController');
+const moviesController = require("../controllers/moviesController");
 
-const moviesValidation = require('../middlewares/moviesValidation');
+const moviesValidation = require("../middlewares/moviesValidation");
 
 router.get("/", moviesController.list);
 
