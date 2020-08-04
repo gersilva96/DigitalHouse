@@ -5,13 +5,14 @@
 </head>
 <body>
     <%- include("../partials/header", {title: "Las más recomendadas"}) %>
-    <div class="container">
+    <div class="container margin">
         <ul>
             <% movies.forEach(movie => { %>
                 <li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li>
             <% }); %>
         </ul>
     </div>
+    <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
 </html>

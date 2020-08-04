@@ -6,10 +6,11 @@
   </head>
   <body>
     <%- include("partials/header", {title: "Error"}) %>
-    <div class="container">
+    <div class="container margin">
         <h2><%= error.status %></h2>
         <pre><%= error.stack %></pre>
     </div>
+    <%- include("partials/footer") %>
     <%- include("partials/scripts") %>
   </body>
 </html>

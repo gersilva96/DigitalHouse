@@ -33,6 +33,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/genres">Géneros</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="actors-dropdown" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Actuaciones</a>
+                            <div class="dropdown-menu dropdown-primary" aria-labelledby="actors-dropdown">
+                                <a class="dropdown-item" href="/actings/add">Agregar</a>
+                                <a class="dropdown-item" href="/actings/delete">Eliminar</a>
+                            </div>
+                        </li>
                     </ul>
                     <form class="form-inline" action="/search" method="GET">
                         <div class="md-form my-0">

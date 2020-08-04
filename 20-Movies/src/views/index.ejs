@@ -6,6 +6,15 @@
   </head>
   <body>
     <%- include("partials/header", {title: "Ejercicio DH Movies - Germán Silva"}) %>
+    <div class="container margin">
+      <p>El proyecto utiliza una base de datos llamada <i>"<strong>movies_db</strong>"</i>, la cual contiene las tablas necesarias para poder representar <strong>películas</strong>, <strong>géneros</strong>, <strong>actores</strong> y <strong>actuaciones</strong>.</p>
+      <p>Dentro del menú <strong>Películas</strong> podemos acceder a un listado de ellas, las más recientes, las más recomendadas y al formulario de adición de una película. También podemos encontrar, en el detalle de cada una, un listado con su rating, premios, duración, fecha de estreno, género, actores y actrices que actuaron en ella, y la posibilidad de editarla o eliminarla.</p>
+      <p>En el menú de <strong>Actores</strong> podemos encontrar casi lo mismo que las películas, en el detalle de cada actor/actriz se muestra su película favorita, rating y el listado de películas en las que actuó, también con la posibilidad de editarlo/a o eliminarlo/a.</p>
+      <p>En <strong>Géneros</strong> se muestra un listado de los mismos, siendo estos links a un detalle en el que se listan las películas con ese género.</p>
+      <p>En el menú <strong>Actuaciones</strong> podemos acceder a los formularios de adición y eliminado de una actuación.</p>
+      <p>Por último, tenemos un <strong>buscador</strong> que permite mostrar los resultados de búsqueda en actores, películas y géneros.</p>
+    </div>
+    <%- include("partials/footer") %>
     <%- include("partials/scripts") %>
   </body>
 </html>

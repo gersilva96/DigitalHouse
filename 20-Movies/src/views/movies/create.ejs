@@ -5,7 +5,7 @@
 </head>
 <body>
     <%- include("../partials/header", {title: "Agregar nueva película"}) %>
-    <div class="container">
+    <div class="container margin">
         <% if (typeof(errors) != "undefined") { %>
             <div class="alert alert-danger" role="alert">
                 <ul>
@@ -54,7 +54,9 @@
             </div>
         </form>
     </div>
+    <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
         $('#sandbox-container .input-group.date').datepicker({
             autoclose: true

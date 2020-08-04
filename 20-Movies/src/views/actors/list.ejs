@@ -5,13 +5,14 @@
 </head>
 <body>
     <%- include("../partials/header", {title: "Todos los actores"}) %>
-    <div class="container">
+    <div class="container margin">
         <ul>
             <% actors.forEach(actor => { %>
                 <li><a href="/actors/detail/<%= actor.id %>"><%= `${actor.first_name} ${actor.last_name}` %></a></li>
             <% }); %>
         </ul>
     </div>
+    <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
 </html>

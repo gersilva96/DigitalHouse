@@ -5,7 +5,7 @@
 </head>
 <body>
     <%- include("partials/header", {title: `Buscando: ${search}`}) %>
-    <div class="container">
+    <div class="container margin">
         <% if (actors.length == 0 && movies.length == 0 && genres.length == 0) { %>
             <div class="alert alert-warning" role="alert">
                 No se encontraron resultados
@@ -36,6 +36,7 @@
             </ul>
         <% } %>
     </div>
+    <%- include("partials/footer") %>
     <%- include("partials/scripts") %>
 </body>
 </html>
