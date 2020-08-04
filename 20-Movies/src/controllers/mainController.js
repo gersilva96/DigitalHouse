@@ -1,12 +1,12 @@
-const {Actors, Movies, Genres} = require("../database/models");
-const {Op} = require("sequelize");
+const { Actors, Movies, Genres } = require("../database/models");
+const { Op } = require("sequelize");
 
 let mainController = {
     home: async (req, res) => {
         try {
             res.render("index");
-        } catch(error) {
-            res.render("error", {error});
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     search: async (req, res) => {
@@ -35,9 +35,9 @@ let mainController = {
                     }
                 }
             });
-            res.render("results", {actors, movies, genres, search: req.query.keywords});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("results", { actors, movies, genres, search: req.query.keywords });
+        } catch (error) {
+            res.render("error", { error });
         }
     }
 };

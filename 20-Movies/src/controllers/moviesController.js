@@ -1,27 +1,27 @@
-const {Movies, Genres, Actors, ActorMovie} = require("../database/models");
-const {Op} = require("sequelize");
-const {validationResult} = require("express-validator");
+const { Movies, Genres, Actors, ActorMovie } = require("../database/models");
+const { Op } = require("sequelize");
+const { validationResult } = require("express-validator");
 
 const moviesController = {
     list: async (req, res) => {
         try {
             const movies = await Movies.findAll();
-            res.render("movies/list", {movies});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/list", { movies });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     detail: async (req, res) => {
         try {
-            const movie = await Movies.findByPk(req.params.id,{
+            const movie = await Movies.findByPk(req.params.id, {
                 include: [
-                    {association: "actors"},
-                    {association: "genre"}
+                    { association: "actors" },
+                    { association: "genre" }
                 ]
             });
-            res.render("movies/detail", {movie});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/detail", { movie });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     new: async (req, res) => {
@@ -32,9 +32,9 @@ const moviesController = {
                     ["release_date", "DESC"]
                 ]
             });
-            res.render("movies/new", {movies});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/new", { movies });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     recommended: async (req, res) => {
@@ -46,18 +46,18 @@ const moviesController = {
                     }
                 }
             });
-            res.render("movies/recommended", {movies});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/recommended", { movies });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     create: async (req, res) => {
         try {
             const genres = await Genres.findAll();
             const actors = await Actors.findAll();
-            res.render("movies/create", {genres, actors});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/create", { genres, actors });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     store: async (req, res) => {
@@ -113,10 +113,10 @@ const moviesController = {
             } else {
                 const genres = await Genres.findAll();
                 const actors = await Actors.findAll();
-                res.render("movies/create", {genres, actors, errors: errors.errors});
+                res.render("movies/create", { genres, actors, errors: errors.errors });
             }
-        } catch(error) {
-            res.render("error", {error});
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     edit: async (req, res) => {
@@ -124,9 +124,9 @@ const moviesController = {
             const movie = await Movies.findByPk(req.params.id);
             const genres = await Genres.findAll();
             const actors = await Actors.findAll();
-            res.render("movies/edit", {movie, genres, actors});
-        } catch(error) {
-            res.render("error", {error});
+            res.render("movies/edit", { movie, genres, actors });
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     update: async (req, res) => {
@@ -199,10 +199,10 @@ const moviesController = {
                 const movie = await Movies.findByPk(req.params.id);
                 const genres = await Genres.findAll();
                 const actors = await Actors.findAll();
-                res.render("movies/edit", {movie, genres, actors, errors: errors.errors});
+                res.render("movies/edit", { movie, genres, actors, errors: errors.errors });
             }
-        } catch(error) {
-            res.render("error", {error});
+        } catch (error) {
+            res.render("error", { error });
         }
     },
     delete: async (req, res) => {
@@ -213,14 +213,21 @@ const moviesController = {
                     movie_id: movie.id
                 }
             });
+            await Actors.update({
+                favorite_movie_id: null
+            }, {
+                where: {
+                    favorite_movie_id: req.params.id
+                }
+            });
             await Movies.destroy({
                 where: {
                     id: req.params.id
                 }
             });
             res.redirect("/movies");
-        } catch(error) {
-            res.render("error", {error});
+        } catch (error) {
+            res.render("error", { error });
         }
     }
 };
