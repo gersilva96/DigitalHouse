@@ -1,4 +1,4 @@
----------- !CUIDADO!: Este script borra, si existe, una base con el nombre "mercadoliebre" ----------
+/* !CUIDADO!: Este script borra, si existe, una base con el nombre "mercadoliebre" */
 
 DROP SCHEMA IF EXISTS `mercadoliebre` ;
 CREATE SCHEMA `mercadoliebre` DEFAULT CHARACTER SET utf8mb4 ;
@@ -37,4 +37,4 @@ INSERT INTO `products` VALUES
   (15,123470,'Bicicleta Mountain Bike Fierce Rodado 29',15979.00,12,'visited','Bicicleta Mountain Bike Fierce Rodado 29 21 velocidades. Tipo: Mountain Bike. Rodado: 29. Material Cuadro: Aluminio. Talle: 18. Suspensión: Delantera. Velocidades: 21 - Shimano. Sistema de Freno: Disco Mecánico. Llantas: Doble pared.','img-prod-code123470.jpg','2020-07-24 14:42:54','2020-07-24 14:42:54'),
   (16,123471,'Sony Srs-xb12 Parlante Bluetooth Portátil',4699.00,5,'in-sale','Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ','img-prod-code123471.jpg','2020-07-24 14:42:54','2020-07-24 14:42:54');
 
----------- !CUIDADO!: Este script borra, si existe, una base con el nombre "mercadoliebre" ----------
+/* !CUIDADO!: Este script borra, si existe, una base con el nombre "mercadoliebre" */
