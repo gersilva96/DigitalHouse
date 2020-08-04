@@ -26,8 +26,7 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     const config = {
-        tableName: "actors",
-        timestamps: false
+        tableName: "actors"
     };
 
     const Actor = sequelize.define(alias, cols, config);

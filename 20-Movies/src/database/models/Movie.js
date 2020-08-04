@@ -34,8 +34,7 @@ module.exports = (sequelize, dataTypes) => {
     };
 
     const config = {
-        tableName: "movies",
-        timestamps: false
+        tableName: "movies"
     };
 
     const Movie = sequelize.define(alias, cols, config);
