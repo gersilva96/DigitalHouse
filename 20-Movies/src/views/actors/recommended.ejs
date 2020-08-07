@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: "Los más recomendados"}) %>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: "Los más recomendados"}) %>
-    <div class="container margin">
-        <ul>
-            <% actors.forEach(actor => { %>
+    <div class="body-section">
+        <%- include("../partials/header", {title: "Los más recomendados"}) %>
+        <div class="container margin">
+            <ul>
+                <% actors.forEach(actor => { %>
                 <li><a href="/actors/detail/<%= actor.id %>"><%= `${actor.first_name} ${actor.last_name}` %></a></li>
-            <% }); %>
-        </ul>
+                <% }); %>
+            </ul>
+        </div>
     </div>
     <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
+
 </html>

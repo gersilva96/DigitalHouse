@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: genre.name}) %>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: `Películas con género ${genre.name}:`}) %>
-    <div class="container margin">
-        <ul>
-            <% genre.movies.forEach(movie => { %>
+    <div class="body-section">
+        <%- include("../partials/header", {title: `Películas con género ${genre.name}:`}) %>
+        <div class="container margin">
+            <ul>
+                <% genre.movies.forEach(movie => { %>
                 <li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li>
-            <% }); %>
-        </ul>
+                <% }); %>
+            </ul>
+        </div>
     </div>
     <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
+
 </html>

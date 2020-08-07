@@ -1,29 +1,38 @@
-body .container.margin {
-  margin-bottom: 100px; }
+html, body {
+  height: 100%; }
 
-body .form {
-  max-width: 500px;
-  padding: 20px;
-  margin: 0 auto;
-  border-radius: 10px; }
-  @media (min-width: 768px) {
-    body .form {
-      padding: 20px 50px; } }
-  body .form #release_date, body .form #genre, body .form #favorite_movie_id, body .form #actor_id, body .form #movie_id {
-    border: none;
-    padding-left: 0;
-    border-radius: 0;
-    border-bottom: 1px solid #CED4DA;
-    margin-bottom: 8px;
-    transition: all 400ms; }
-    body .form #release_date::placeholder, body .form #genre::placeholder, body .form #favorite_movie_id::placeholder, body .form #actor_id::placeholder, body .form #movie_id::placeholder {
-      font-weight: 300;
-      color: #757575; }
-    body .form #release_date:focus, body .form #genre:focus, body .form #favorite_movie_id:focus, body .form #actor_id:focus, body .form #movie_id:focus {
-      outline: none;
-      box-shadow: none;
-      border-bottom: 2px solid #4285F4; }
-  body .form .form-group {
-    margin-top: 50px; }
+body {
+  display: flex;
+  flex-direction: column; }
+  body .body-section {
+    flex: 1 0 auto; }
+    body .body-section .container.margin {
+      margin-bottom: 100px; }
+    body .body-section .form {
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+      border-radius: 10px; }
+      @media (min-width: 768px) {
+        body .body-section .form {
+          padding: 20px 50px; } }
+      body .body-section .form #release_date, body .body-section .form #genre, body .body-section .form #favorite_movie_id, body .body-section .form #actor_id, body .body-section .form #movie_id {
+        border: none;
+        padding-left: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #CED4DA;
+        margin-bottom: 8px;
+        transition: all 400ms; }
+        body .body-section .form #release_date::placeholder, body .body-section .form #genre::placeholder, body .body-section .form #favorite_movie_id::placeholder, body .body-section .form #actor_id::placeholder, body .body-section .form #movie_id::placeholder {
+          font-weight: 300;
+          color: #757575; }
+        body .body-section .form #release_date:focus, body .body-section .form #genre:focus, body .body-section .form #favorite_movie_id:focus, body .body-section .form #actor_id:focus, body .body-section .form #movie_id:focus {
+          outline: none;
+          box-shadow: none;
+          border-bottom: 2px solid #4285F4; }
+      body .body-section .form .form-group {
+        margin-top: 50px; }
+  body footer {
+    flex-shrink: 0; }
 
 /*# sourceMappingURL=styles.css.map */

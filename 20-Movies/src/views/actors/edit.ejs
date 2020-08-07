@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: `Editando: ${actor.first_name} ${actor.last_name}`}) %>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: `Editando: ${actor.first_name} ${actor.last_name}`}) %>
-    <div class="container margin">
-        <% if (typeof(errors) != "undefined") { %>
+    <div class="body-section">
+        <%- include("../partials/header", {title: `Editando: ${actor.first_name} ${actor.last_name}`}) %>
+        <div class="container margin">
+            <% if (typeof(errors) != "undefined") { %>
             <div class="alert alert-danger" role="alert">
                 <ul>
                     <% errors.forEach(errores => { %>
-                        <li><%= errores.msg %></li>
+                    <li><%= errores.msg %></li>
                     <% }) %>
                 </ul>
             </div>
-        <% } %>
-        <form class="form border border-primary" action="/actors/edit/<%= actor.id %>?_method=PUT" method="POST">
-            <div class="md-form">
-                <label for="first_name">Nombre:</label>
-                <input type="text" class="form-control" name="first_name" id="first_name" value="<%= actor.first_name %>" required>
-            </div>
-            <div class="md-form">
-                <label for="last_name">Apellido:</label>
-                <input type="text" class="form-control" name="last_name" id="last_name" value="<%= actor.last_name %>" required>
-            </div>
-            <div class="md-form">
-                <label for="rating">Rating:</label>
-                <input type="text" class="form-control" name="rating" id="rating" value="<%= actor.rating %>" required>
-            </div>
-            <div class="md-form">
-                <label for="favorite_movie_id"></label>
-                <select name="favorite_movie_id" id="favorite_movie_id" class="form-control">
-                    <% if (actor.favorite_movie_id == undefined || actor.favorite_movie_id == null) { %>
+            <% } %>
+            <form class="form border border-primary" action="/actors/edit/<%= actor.id %>?_method=PUT" method="POST">
+                <div class="md-form">
+                    <label for="first_name">Nombre:</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name"
+                        value="<%= actor.first_name %>" required>
+                </div>
+                <div class="md-form">
+                    <label for="last_name">Apellido:</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name"
+                        value="<%= actor.last_name %>" required>
+                </div>
+                <div class="md-form">
+                    <label for="rating">Rating:</label>
+                    <input type="text" class="form-control" name="rating" id="rating" value="<%= actor.rating %>"
+                        required>
+                </div>
+                <div class="md-form">
+                    <label for="favorite_movie_id"></label>
+                    <select name="favorite_movie_id" id="favorite_movie_id" class="form-control">
+                        <% if (actor.favorite_movie_id == undefined || actor.favorite_movie_id == null) { %>
                         <option selected disabled>Película favorita:</option>
-                    <% } %>
-                    <% movies.forEach(movie => { %>
-                        <option value="<%= movie.id %>" <% if ((actor.favorite_movie_id != undefined || actor.favorite_movie_id != null) && (movie.id == actor.favorite_movie_id)) { %>selected<% } %>><%= movie.title %></option>
-                    <% }); %>
-                </select>
-            </div>
-            <div class="form-group d-flex justify-content-between align-items-center">
-                <a href="/actors"><i class="fas fa-chevron-left"></i> Volver</a>
-                <button type="reset" class="btn btn-sm btn-outline-warning waves-effect">Reiniciar</button>
-                <button type="submit" class="btn btn-sm btn-success waves-effect">Editar</button>
-            </div>
-        </form>
+                        <% } %>
+                        <% movies.forEach(movie => { %>
+                        <option value="<%= movie.id %>"
+                            <% if ((actor.favorite_movie_id != undefined || actor.favorite_movie_id != null) && (movie.id == actor.favorite_movie_id)) { %>selected<% } %>>
+                            <%= movie.title %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center">
+                    <a href="/actors"><i class="fas fa-chevron-left"></i> Volver</a>
+                    <button type="reset" class="btn btn-sm btn-outline-warning waves-effect">Reiniciar</button>
+                    <button type="submit" class="btn btn-sm btn-success waves-effect">Editar</button>
+                </div>
+            </form>
+        </div>
     </div>
     <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
+
 </html>

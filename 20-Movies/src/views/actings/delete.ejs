@@ -1,51 +1,56 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: "Eliminar actuación"}) %>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: "Eliminar actuación"}) %>
-    <div class="container margin">
-        <% if (typeof(mensaje) != "undefined") { %>
+    <div class="body-section">
+        <%- include("../partials/header", {title: "Eliminar actuación"}) %>
+        <div class="container margin">
+            <% if (typeof(mensaje) != "undefined") { %>
             <div class="alert alert-success" role="alert">
                 <p><%= mensaje %></p>
             </div>
-        <% } %>
-        <% if (typeof(errors) != "undefined") { %>
+            <% } %>
+            <% if (typeof(errors) != "undefined") { %>
             <div class="alert alert-danger" role="alert">
                 <ul>
                     <% errors.forEach(errores => { %>
-                        <li><%= errores.msg %></li>
+                    <li><%= errores.msg %></li>
                     <% }) %>
                 </ul>
             </div>
-        <% } %>
-        <form class="form border border-primary" action="/actings/delete?_method=DELETE" method="POST">
-            <div class="md-form">
-                <label for="actor_id"></label>
-                <select name="actor_id" id="actor_id" class="form-control" required>
-                    <option selected disabled>Seleccionar actor/actriz:</option>
-                    <% actors.forEach(actor => { %>
+            <% } %>
+            <form class="form border border-primary" action="/actings/delete?_method=DELETE" method="POST">
+                <div class="md-form">
+                    <label for="actor_id"></label>
+                    <select name="actor_id" id="actor_id" class="form-control" required>
+                        <option selected disabled>Seleccionar actor/actriz:</option>
+                        <% actors.forEach(actor => { %>
                         <option value="<%= actor.id %>"><%= `${actor.first_name} ${actor.last_name}` %></option>
-                    <% }); %>
-                </select>
-            </div>
-            <div class="md-form">
-                <label for="movie_id"></label>
-                <select name="movie_id" id="movie_id" class="form-control" required>
-                    <option selected disabled>Seleccionar película:</option>
-                    <% movies.forEach(movie => { %>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="md-form">
+                    <label for="movie_id"></label>
+                    <select name="movie_id" id="movie_id" class="form-control" required>
+                        <option selected disabled>Seleccionar película:</option>
+                        <% movies.forEach(movie => { %>
                         <option value="<%= movie.id %>"><%= movie.title %></option>
-                    <% }); %>
-                </select>
-            </div>
-            <div class="form-group d-flex justify-content-between align-items-center">
-                <button type="reset" class="btn btn-outline-warning waves-effect">Reiniciar</button>
-                <button type="submit" class="btn btn-success waves-effect">Eliminar</button>
-            </div>
-        </form>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center">
+                    <button type="reset" class="btn btn-outline-warning waves-effect">Reiniciar</button>
+                    <button type="submit" class="btn btn-success waves-effect">Eliminar</button>
+                </div>
+            </form>
+        </div>
     </div>
     <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
 </body>
+
 </html>

@@ -1,66 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: `Editando: ${movie.title}`}) %>
 </head>
+
 <body>
-    <%- include("../partials/header", {title: `Editando: ${movie.title}`}) %>
-    <div class="container margin">
-        <% if (typeof(errors) != "undefined") { %>
+    <div class="body-section">
+        <%- include("../partials/header", {title: `Editando: ${movie.title}`}) %>
+        <div class="container margin">
+            <% if (typeof(errors) != "undefined") { %>
             <div class="alert alert-danger" role="alert">
                 <ul>
                     <% errors.forEach(errores => { %>
-                        <li><%= errores.msg %></li>
+                    <li><%= errores.msg %></li>
                     <% }) %>
                 </ul>
             </div>
-        <% } %>
-        <form class="form border border-primary" action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
-            <div class="md-form">
-                <label for="title">Título:</label>
-                <input type="text" class="form-control" name="title" id="title" value="<%= movie.title %>" required>
-            </div>
-            <div class="md-form">
-                <label for="rating">Rating:</label>
-                <input type="text" class="form-control" name="rating" id="rating" value="<%= movie.rating %>" required>
-            </div>
-            <div class="md-form">
-                <label for="awards">Premios:</label>
-                <input type="number" class="form-control" name="awards" id="awards" value="<%= movie.awards %>" required>
-            </div>
-            <div class="md-form">
-                <label for="length">Duración:</label>
-                <input type="number" class="form-control" name="length" id="length" value="<%= movie.length %>">
-            </div>
-            <div id="sandbox-container">
-                <div class="input-group date">
-                    <input type="text" class="form-control" name="release_date" id="release_date" placeholder="Fecha de estreno:" value="<% if (movie.release_date.getUTCMonth()+1 < 10) { %><%= `0${movie.release_date.getUTCMonth()+1}` %><% } else { %><%= movie.release_date.getUTCMonth()+1 %><% } %>/<% if (movie.release_date.getUTCDate() < 10) { %><%= `0${movie.release_date.getUTCDate()}` %><% } else { %><%= movie.release_date.getUTCDate() %><% } %>/<%= movie.release_date.getUTCFullYear() %>" required>
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+            <% } %>
+            <form class="form border border-primary" action="/movies/edit/<%= movie.id %>?_method=PUT" method="POST">
+                <div class="md-form">
+                    <label for="title">Título:</label>
+                    <input type="text" class="form-control" name="title" id="title" value="<%= movie.title %>" required>
                 </div>
-            </div>
-            <div class="md-form">
-                <label for="genre"></label>
-                <select name="genre" id="genre" class="form-control">
-                    <option selected disabled>Género:</option>
-                    <% genres.forEach(genre => { %>
-                        <option value="<%= genre.id %>" <% if(genre.id == movie.genre_id) { %>selected<% } %>><%= genre.name %></option>
-                    <% }); %>
-                </select>
-            </div>
-            <div class="form-group d-flex justify-content-between align-items-center">
-                <a href="/movies/detail/<%= movie.id %>"><i class="fas fa-chevron-left"></i> Volver</a>
-                <button type="reset" class="btn btn-sm btn-outline-warning waves-effect">Reiniciar</button>
-                <button type="submit" class="btn btn-sm btn-success waves-effect">Editar</button>
-            </div>
-        </form>
+                <div class="md-form">
+                    <label for="rating">Rating:</label>
+                    <input type="text" class="form-control" name="rating" id="rating" value="<%= movie.rating %>"
+                        required>
+                </div>
+                <div class="md-form">
+                    <label for="awards">Premios:</label>
+                    <input type="number" class="form-control" name="awards" id="awards" value="<%= movie.awards %>"
+                        required>
+                </div>
+                <div class="md-form">
+                    <label for="length">Duración:</label>
+                    <input type="number" class="form-control" name="length" id="length" value="<%= movie.length %>">
+                </div>
+                <div id="sandbox-container">
+                    <div class="input-group date">
+                        <input type="text" class="form-control" name="release_date" id="release_date"
+                            placeholder="Fecha de estreno:"
+                            value="<% if (movie.release_date.getUTCMonth()+1 < 10) { %><%= `0${movie.release_date.getUTCMonth()+1}` %><% } else { %><%= movie.release_date.getUTCMonth()+1 %><% } %>/<% if (movie.release_date.getUTCDate() < 10) { %><%= `0${movie.release_date.getUTCDate()}` %><% } else { %><%= movie.release_date.getUTCDate() %><% } %>/<%= movie.release_date.getUTCFullYear() %>"
+                            required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                    </div>
+                </div>
+                <div class="md-form">
+                    <label for="genre"></label>
+                    <select name="genre" id="genre" class="form-control">
+                        <option selected disabled>Género:</option>
+                        <% genres.forEach(genre => { %>
+                        <option value="<%= genre.id %>" <% if(genre.id == movie.genre_id) { %>selected<% } %>>
+                            <%= genre.name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <div class="form-group d-flex justify-content-between align-items-center">
+                    <a href="/movies/detail/<%= movie.id %>"><i class="fas fa-chevron-left"></i> Volver</a>
+                    <button type="reset" class="btn btn-sm btn-outline-warning waves-effect">Reiniciar</button>
+                    <button type="submit" class="btn btn-sm btn-success waves-effect">Editar</button>
+                </div>
+            </form>
+        </div>
     </div>
     <%- include("../partials/footer") %>
     <%- include("../partials/scripts") %>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script>
         $('#sandbox-container .input-group.date').datepicker({
             autoclose: true
         });
     </script>
 </body>
+
 </html>

@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <%- include("../partials/head", {title: `${actor.first_name} ${actor.last_name}`}) %>
 </head>
-<body>
-    <%- include("../partials/header", {title: `${actor.first_name} ${actor.last_name}`}) %>
-    <div class="container margin">
-        <ul class="list-group">
-        <li class="list-group-item">Película favorita: <b><% if (actor.favorite_movie != null || actor.favorite_movie != undefined) { %><a href="/movies/detail/<%= actor.favorite_movie.id %>"><%= actor.favorite_movie.title %></a><% } else { %>-<% } %></b></li>
-        <li class="list-group-item">Rating: <b><%= actor.rating %></b></li>
-        <li class="list-group-item">Películas en las que actuó:<br><ul><% if (actor.movies.length == 0) { %><li>-</li><% } else { %><% actor.movies.forEach(movie => { %><li><a href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li><% }); %><% } %></ul></li>
-        </ul>
 
-        <div class="crud-buttons d-flex mt-4">
-            <a href="/actors/edit/<%= actor.id %>"><button class="btn btn-primary"><i class="fas fa-edit"></i> Editar</button></a>
-            <form id="delete-actor-form" action="/actors/delete/<%= actor.id %>?_method=DELETE" method="POST" class="ml-3"><button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Eliminar</button></form>
+<body>
+    <div class="body-section">
+        <%- include("../partials/header", {title: `${actor.first_name} ${actor.last_name}`}) %>
+        <div class="container margin">
+            <ul class="list-group">
+                <li class="list-group-item">Película favorita:
+                    <b><% if (actor.favorite_movie != null || actor.favorite_movie != undefined) { %><a
+                            href="/movies/detail/<%= actor.favorite_movie.id %>"><%= actor.favorite_movie.title %></a><% } else { %>-<% } %></b>
+                </li>
+                <li class="list-group-item">Rating: <b><%= actor.rating %></b></li>
+                <li class="list-group-item">Películas en las que actuó:<br>
+                    <ul><% if (actor.movies.length == 0) { %><li>-</li>
+                        <% } else { %><% actor.movies.forEach(movie => { %><li><a
+                                href="/movies/detail/<%= movie.id %>"><%= movie.title %></a></li><% }); %><% } %></ul>
+                </li>
+            </ul>
+            <div class="crud-buttons d-flex mt-4">
+                <a href="/actors/edit/<%= actor.id %>"><button class="btn btn-primary"><i class="fas fa-edit"></i>
+                        Editar</button></a>
+                <form id="delete-actor-form" action="/actors/delete/<%= actor.id %>?_method=DELETE" method="POST"
+                    class="ml-3"><button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i>
+                        Eliminar</button></form>
+            </div>
         </div>
     </div>
     <%- include("../partials/footer") %>
@@ -22,4 +35,5 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/javascripts/confirmToDeleteActor.js"></script>
 </body>
+
 </html>
